@@ -1,0 +1,70 @@
+# Spring config
+server:
+  port: 8082
+
+  
+spring:
+  application:
+    name: account-svc
+  jpa:
+    hibernate:
+      ddl-auto: update      
+    defer-datasource-initialization: true
+    database-platform: org.hibernate.dialect.MySQLDialect
+  datasource:
+    url: jdbc:mysql://localhost:3406/accounts
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: accounts_svc_user
+    password: accounts_svc_pass
+
+
+eventuate:
+  database:
+    schema: accounts
+
+eventuatelocal:
+  kafka:
+    bootstrap:
+      servers: localhost:9092
+  zookeeper:
+    connection:
+      string: localhost:2181
+
+      
+### App Logging
+logging:
+  pattern:
+    console: '%clr(%d{HH:mm:ss.SSS}){white} %clr(%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]){white}
+      %clr(:){green} %clr(%m){faint}%n'
+  level:
+    org:
+      hibernate:
+        SQL: debug
+      springframework:
+        orm:
+          jpa: INFO
+        web:
+          filter:
+            CommonsRequestLoggingFilter: DEBUG
+    io:
+      eventuate: debug
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  tracing:
+    sampling:
+      probability: 1.0
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http:
+          server:
+            requests: 'true'
+        
+
+
+
