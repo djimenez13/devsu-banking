@@ -1,0 +1,237 @@
+{
+	"info": {
+		"_postman_id": "c9665c65-b657-4524-9ee5-5ab33e5906f9",
+		"name": "devsu-banking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "463878"
+	},
+	"item": [
+		{
+			"name": "Get all customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/clientes",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get customer by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/clientes/2aef0152-bb71-4dba-9d47-ec368f96a789",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"clientes",
+						"2aef0152-bb71-4dba-9d47-ec368f96a789"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Anita\",\r\n\t\"gender\": \"F\",\r\n\t\"age\": \"32\",\r\n\t\"identification\": \"123456789\",\r\n\t\"address\": \"Cartagena\",\r\n\t\"phoneNumber\": \"3014711414\",\r\n\t\"password\": \"abcd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/clientes",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update customer",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Anita222\",\r\n\t\"gender\": \"F222\",\r\n\t\"age\": \"32222\",\r\n\t\"identification\": \"123456789222\",\r\n\t\"address\": \"Cartagena222\",\r\n\t\"phoneNumber\": \"3014711414222\",\r\n\t\"password\": \"abcd222\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/clientes/10b01397-cb29-42c9-81a5-dbb40670246c",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"clientes",
+						"10b01397-cb29-42c9-81a5-dbb40670246c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete customer by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/clientes/921ba3e4-2d72-4332-8663-ed19f915916d",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"clientes",
+						"921ba3e4-2d72-4332-8663-ed19f915916d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get account by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/cuentas/b134978b-b9bd-411d-8eaa-93c5ef979d24",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"cuentas",
+						"b134978b-b9bd-411d-8eaa-93c5ef979d24"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get accounts by customer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/cuentas/cliente/2aef0152-bb71-4dba-9d47-ec368f96a789",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"cuentas",
+						"cliente",
+						"2aef0152-bb71-4dba-9d47-ec368f96a789"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete account by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/cuentas/921ba3e4-2d72-4332-8663-ed19f915916d",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"cuentas",
+						"921ba3e4-2d72-4332-8663-ed19f915916d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get movements by account",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/movimientos/cuenta/921ba3e4-2d72-4332-8663-ed19f915916d",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"movimientos",
+						"cuenta",
+						"921ba3e4-2d72-4332-8663-ed19f915916d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get movements by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/movimientos/2aef0152-bb71-4dba-9d47-ec368f96a789",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"movimientos",
+						"2aef0152-bb71-4dba-9d47-ec368f96a789"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete movement by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/movements/921ba3e4-2d72-4332-8663-ed19f915916d",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"movements",
+						"921ba3e4-2d72-4332-8663-ed19f915916d"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
