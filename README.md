@@ -3,10 +3,10 @@
 ## Arquitectura y patrones
 
 ### Diagrama de contexto (C4 Model)
-Imagen
+![](https://github.com/djimenez13/devsu-banking/blob/main/images/diagrams-context.jpg){width='100px'}
 
 ### Diagrama de contenedores (C4 Model)
-Imagen
+![](https://github.com/djimenez13/devsu-banking/blob/main/images/diagrams-containers.jpg){width='100px'}
 
 ### Patrones
 Cada servicio tiene implementado Clean Architecture. Adicionalmente, se utilizaron varios patrones de diseño, así como varios patrones de microservicios
@@ -17,10 +17,10 @@ Se utilizan transacciones Saga para:
 2. Registro de un Movimiento (Pendiente)
 
 #### Apertura de cuenta
-Imagen
+![](https://github.com/djimenez13/devsu-banking/blob/main/images/open-account-saga.png){width='100px'}
 
 #### Registro de un movimiento
-Imagen
+![](https://github.com/djimenez13/devsu-banking/blob/main/images/make-movement-saga.png){width='100px'}
 
 
 ## API entry points
