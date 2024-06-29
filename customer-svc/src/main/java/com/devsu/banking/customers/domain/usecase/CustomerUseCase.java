@@ -64,11 +64,11 @@ public class CustomerUseCase {
 		repository.delete(customerId);
 	}
 
-//	public String requestOpenAccount(String customerId, int accountNumber, String accountType, double accountBalance) {
-//
-//		String requestId = repository.requestOpenAccount(customerId, accountNumber, accountType, accountBalance);
-//
-//		return requestId;
-//	}
+	public String requestOpenAccount(String customerId, int accountNumber, String accountType, double accountBalance) {
+
+		String requestId = repository.requestOpenAccount(customerId, accountNumber, accountType, accountBalance);
+
+		return requestId;
+	}
 
 }

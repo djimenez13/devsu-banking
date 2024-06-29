@@ -14,6 +14,6 @@ public interface CustomerRepository {
 
 	void delete(String customerId);
 	
-//	String requestOpenAccount(String customerId, int accountNumber, String accountType, double accountBalance);
+	String requestOpenAccount(String customerId, int accountNumber, String accountType, double accountBalance);
 
 }

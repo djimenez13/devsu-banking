@@ -16,6 +16,9 @@ import com.devsu.banking.accounts.infrastructure.adapters.jpa.movement.MovementD
 import com.devsu.banking.accounts.infrastructure.adapters.jpa.movement.MovementRepositoryAdapter;
 import com.devsu.banking.accounts.infrastructure.entrypoints.mq.AccountCommandHandler;
 
+import io.eventuate.tram.commands.consumer.CommandDispatcher;
+import io.eventuate.tram.sagas.participant.SagaCommandDispatcherFactory;
+
 @Configuration
 @EnableAutoConfiguration
 public class AppConfig {
@@ -58,12 +61,12 @@ public class AppConfig {
 		return new AccountCommandHandler();
 	}
 	
-//	@Bean
-//	public CommandDispatcher consumerCommandDispatcher(AccountCommandHandler target, 
-//			SagaCommandDispatcherFactory sagaCommandDispatcherFactory) {
-//		
-//		return sagaCommandDispatcherFactory.make("accountCommandDispatcher", 
-//				target.commandHandlerDefinitions());
-//	}
+	@Bean
+	public CommandDispatcher consumerCommandDispatcher(AccountCommandHandler target, 
+			SagaCommandDispatcherFactory sagaCommandDispatcherFactory) {
+		
+		return sagaCommandDispatcherFactory.make("accountCommandDispatcher", 
+				target.commandHandlerDefinitions());
+	}
 
 }

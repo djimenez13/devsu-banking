@@ -4,10 +4,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.devsu.banking.customers.domain.model.Customer;
 import com.devsu.banking.customers.domain.model.gateway.CustomerRepository;
+import com.devsu.banking.customers.infrastructure.adapters.jpa.saga.OpenAccountDetails;
+import com.devsu.banking.customers.infrastructure.saga.OpenAccountSaga;
+import com.devsu.banking.customers.infrastructure.saga.OpenAccountSagaData;
+
+import io.eventuate.tram.sagas.orchestration.SagaInstanceFactory;
 
 @Component
 public class CustomerRepositoryAdapter implements CustomerRepository {
@@ -15,11 +21,11 @@ public class CustomerRepositoryAdapter implements CustomerRepository {
 	private CustomerDataRepository repository;
 	private ModelMapper modelMapper;
 
-//	@Autowired
-//	private SagaInstanceFactory sagaInstanceFactory;
+	@Autowired
+	private SagaInstanceFactory sagaInstanceFactory;
 
-//	@Autowired
-//	private OpenAccountSaga openAccountSaga;
+	@Autowired
+	private OpenAccountSaga openAccountSaga;
 
 	public CustomerRepositoryAdapter(CustomerDataRepository repository, ModelMapper modelMapper) {
 		this.repository = repository;
@@ -66,15 +72,15 @@ public class CustomerRepositoryAdapter implements CustomerRepository {
 
 	}
 
-//	@Override
-//	public String requestOpenAccount(String customerId, int accountNumber, String accountType, double accountBalance) {
-//		OpenAccountDetails details = new OpenAccountDetails(customerId, accountNumber, accountType, accountBalance);
-//
-//		OpenAccountSagaData sagaData = new OpenAccountSagaData(details);
-//		sagaInstanceFactory.create(openAccountSaga, sagaData);
-//
-//		//TODO: Return the request id of the operation
-//		return "1";
-//	}
+	@Override
+	public String requestOpenAccount(String customerId, int accountNumber, String accountType, double accountBalance) {
+		OpenAccountDetails details = new OpenAccountDetails(customerId, accountNumber, accountType, accountBalance);
+
+		OpenAccountSagaData sagaData = new OpenAccountSagaData(details);
+		sagaInstanceFactory.create(openAccountSaga, sagaData);
+
+		//TODO: Return the request id of the operation
+		return "1";
+	}
 
 }

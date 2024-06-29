@@ -24,18 +24,18 @@ import io.eventuate.tram.spring.optimisticlocking.OptimisticLockingDecoratorConf
 @EntityScan("com.devsu.banking.accounts.*")
 @EnableJpaRepositories("com.devsu.banking.accounts")
 @SpringBootApplication
-//@Import({
-//	AppConfig.class,
-//	OptimisticLockingDecoratorConfiguration.class,
-//	SagaParticipantConfiguration.class,
-//	TramConsumerCommonConfiguration.class,
-//	EventuateTramKafkaMessageConsumerConfiguration.class,
-//	TramMessagingCommonAutoConfiguration.class,
-//	TramConsumerJdbcAutoConfiguration.class, // Idempotent consumer
-//	TramCommandsCommonAutoConfiguration.class,
-//	TramMessagingCommonProducerConfiguration.class,
-//	TramMessageProducerJdbcConfiguration.class
-//})
+@Import({
+	AppConfig.class,
+	OptimisticLockingDecoratorConfiguration.class,
+	SagaParticipantConfiguration.class,
+	TramConsumerCommonConfiguration.class,
+	EventuateTramKafkaMessageConsumerConfiguration.class,
+	TramMessagingCommonAutoConfiguration.class,
+	TramConsumerJdbcAutoConfiguration.class, // Idempotent consumer
+	TramCommandsCommonAutoConfiguration.class,
+	TramMessagingCommonProducerConfiguration.class,
+	TramMessageProducerJdbcConfiguration.class
+})
 @EnableAutoConfiguration
 public class MainApplication {
 

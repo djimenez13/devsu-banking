@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.devsu.banking.accounts.api.dto.OpenAccountRequest;
+import com.devsu.banking.accounts.api.dto.OpenAccountResponse;
 import com.devsu.banking.customers.api.dto.CreateCustomerRequest;
 import com.devsu.banking.customers.api.dto.CreateCustomerResponse;
 import com.devsu.banking.customers.api.dto.GetCustomerResponse;
@@ -89,15 +91,15 @@ public class CustomerApiRest {
 
 	}
 
-//	@PostMapping("/{customerId}/cuentas")
-//	public ResponseEntity<OpenAccountResponse> requestOpenAccount(@PathVariable String customerId,
-//			@RequestBody OpenAccountRequest request) {
-//
-//		String requestId = useCase.requestOpenAccount(customerId, request.getAccountNumber(), request.getAccountType(),
-//				request.getAccountBalance());
-//
-//		return new ResponseEntity<>(new OpenAccountResponse(requestId), HttpStatus.CREATED);
-//
-//	}
+	@PostMapping("/{customerId}/cuentas")
+	public ResponseEntity<OpenAccountResponse> requestOpenAccount(@PathVariable String customerId,
+			@RequestBody OpenAccountRequest request) {
+
+		String requestId = useCase.requestOpenAccount(customerId, request.getAccountNumber(), request.getAccountType(),
+				request.getAccountBalance());
+
+		return new ResponseEntity<>(new OpenAccountResponse(requestId), HttpStatus.CREATED);
+
+	}
 
 }
